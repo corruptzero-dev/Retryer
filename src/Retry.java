@@ -29,7 +29,9 @@ public class Retry <T extends Retryable> {
                     attempts++;
                 }
                 if(tt.isAlive()){
-                    tt.interrupt();     //timeout
+                    System.out.print("Timeout. Retry!\n");
+                    tt.interrupt();
+                    attempts++;     //timeout
                 }
                 System.out.println("Success!");
             } else {
