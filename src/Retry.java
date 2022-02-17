@@ -25,13 +25,13 @@ public class Retry <T extends Retryable> {
                 }
                 if(tt.hasError){
                     System.out.print("Retry!\n");
-                    tt.interrupt();
                     attempts++;
+                    tt.interrupt();
                 }
                 if(tt.isAlive()){
                     System.out.print("Timeout. Retry!\n");
-                    tt.interrupt();
-                    attempts++;     //timeout
+                    attempts++;
+                    tt.interrupt(); //timeout
                 }
                 System.out.println("Success!");
             } else {
